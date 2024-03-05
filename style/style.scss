@@ -1,0 +1,97 @@
+@use 'general';
+@use 'vars' as *;
+@use 'mixins' as *;
+
+.control {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #2196f3c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    left: 0;
+    top: 0
+}
+.control input {
+    margin-right: 5px;
+    outline: none;
+    border: none;
+    padding: 5px;
+    font-size: 1.1rem;
+    border-radius: 3px;
+    color: orangered
+}
+.control button {
+    background-color: orangered;
+    color: white;
+    @include buttons;
+}
+.info-container {
+    width: 80%;
+    margin: 20px auto 0;
+    background-color: #f6f6f6;
+    padding: 20px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid $special-color
+}
+.info-container .name span {
+    color: $special-color
+}
+.info-container .tries span{
+    color: $wrong-color
+}
+
+.blocks-container {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5,150px);
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 0px 0px
+}
+.blocks-container.no-click {
+    pointer-events: none;
+}
+.blocks-container .game-block{
+    text-align: center;
+    transition: $main-transition;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    height: 130px;
+}
+.blocks-container .game-block:is(.is-flibbed,.has-match) {
+    transform: rotateY(180deg);
+}
+.blocks-container .game-block div{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    backface-visibility: hidden;
+    border: 2px solid $special-color
+}
+.blocks-container .game-block .front{
+    background-color: #333;
+    @include center
+}
+.blocks-container .game-block .front::before {
+    content: '!';
+    color: #fff;
+    font-size: 6rem;
+    font-weight: bold;
+}
+.blocks-container .game-block .back{
+    background-color: #607d8b;
+    transform: rotateY(180deg);
+}
+.blocks-container img {
+    max-width: 100%;
+    height: 110px;
+    margin-top: 10px
+}
