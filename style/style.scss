@@ -99,7 +99,7 @@
 }
 @media (max-width: 767px) {
     .blocks-container {
-        grid-template-columns: repeat(auto-fill,minmax(80px,1fr));
+        grid-template-columns: repeat(auto-fill,minmax(60px,1fr));
         padding-bottom: 50px
     }
     .blocks-container .game-block {
