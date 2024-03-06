@@ -4,6 +4,7 @@ if(window.localStorage.getItem('username')){
     document.querySelector('.name span').textContent = window.localStorage.getItem('username');
     document.querySelector('.control').remove();
 } 
+console.log(window.innerWidth);
 
 controlBtn.addEventListener('click',function(){
     if(uName.value.trim() === '' || uName.value === null) {
